@@ -1,0 +1,144 @@
+:root{
+  --header-h: 40px;                   
+  --nav-h: 56px;                       
+  --stack-offset: calc(var(--header-h) + var(--nav-h));
+
+
+  --z-navbar: 2000;
+  --z-header: 2100;
+  --z-backdrop: 2140;
+  --z-offcanvas: 2200;
+
+
+  --bg: #cfda75;
+  --text: #222;
+  --border: #e5e7eb;
+}
+
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  
+  padding-top: var(--stack-offset);
+}
+
+
+body.p-4{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+.content-wrapper {
+  min-height: calc(100vh - var(--stack-offset));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem 4rem;
+
+}
+
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 0 12px;
+  background: #f6f6f6;
+  border-bottom: 1px solid #ddd;
+  z-index: var(--z-header);
+}
+
+
+.navbar.site-nav{
+  position: fixed;
+  top: var(--header-h);
+  left: 0; right: 0;
+  border-bottom: 1px solid var(--border);
+  z-index: var(--z-navbar);
+}
+
+
+.offcanvas,
+.offcanvas-start,
+.offcanvas-end,
+.offcanvas-top,
+.offcanvas-bottom{
+  position: fixed !important;
+  top: 0 !important;
+  height: 100vh !important;
+  z-index: var(--z-offcanvas) !important;
+}
+
+
+.offcanvas-backdrop.show{
+  position: fixed;
+  z-index: var(--z-backdrop);
+  backdrop-filter: blur(2px); 
+}
+
+
+
+
+.forum {
+  max-width: 900px;
+  width: 90%;
+  margin: 3rem auto 4rem; 
+  background: #7fa538;
+  border: 1px solid #916868;
+  border-radius: 19px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 20px rgba(126, 38, 38, 0.06);
+}
+.forum h2 { margin: 0 0 0.75rem; }
+
+.post-form input[type="text"],
+.post-form textarea,
+.post-form select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #543cc2;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+.post-form textarea { min-height: 110px; resize: vertical; }
+.post-form button {
+  align-self: start;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: #0d6efd;
+  color: #f1ecec;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.post-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem; 
+  padding-bottom: 1.5rem; 
+  
+}
+
+
+.forum {
+  margin-bottom: 20rem;
+}
+
+@media (max-height: 700px) {
+  .content-wrapper {
+    align-items: flex-start;   
+    padding-top: 3rem;
+  }
+}
+
